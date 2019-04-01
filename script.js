@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    function pad (val){
+    function pad(val) {
         return val < 10 ? '0' + val : val;
     };
 
@@ -32,23 +32,21 @@ $(document).ready(function() {
         totalMinute: 5,
         totalSeconds: 0,
 
-        showSelect: function(){
+        showSelect(){
             this.stop();
-            let self = this;
-            self.totalHour = hh;
+            this.totalHour = hh;
             $('#hour').text(pad(hh));
-            self.totalMinute = mm;
+            this.totalMinute = mm;
             $('#minute').text(pad(mm));
-            self.totalSeconds = ss;
+            this.totalSeconds = ss;
             $('#second').text(pad(ss));
         },
 
-        decrementVal: function (){
-            let self = this;
-            let secTime = (self.totalHour * 3600) + (self.totalMinute * 60) + self.totalSeconds;
-            this.interval = setInterval(function () {
+        decrementVal() {
+            let secTime = (this.totalHour * 3600) + (this.totalMinute * 60) + this.totalSeconds;
+            this.interval = setInterval( () => {
             if(secTime === 0){
-                self.reset();
+                this.reset();
                 return alert('The end')
             }
             secTime -= 1;
@@ -58,22 +56,22 @@ $(document).ready(function() {
             }, 1000);
         },
 
-        start:  function() {
-            this.decrementVal();
+        start(){
+           this.decrementVal();
         },
 
-        stop: function(){
+        stop(){
             clearInterval(this.interval);
         },
 
-        reset: function () {
+        reset() {
             this.stop();
             $("#hour").text("00");
             $("#minute").text("00");
             $("#second").text("00");
         },
         
-        pause: function () {
+        pause() {
             this.stop();
             delete this.interval;
         }
