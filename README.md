@@ -1,2 +1,2 @@
 # Timer
- JQuery countdown timercountdown timer with the ability to set the time.
+ JQuery countdown timer with the ability to set the time.
